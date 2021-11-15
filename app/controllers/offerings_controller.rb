@@ -19,10 +19,15 @@ class OfferingsController < ApplicationController
         render json: offerings, status: :ok
     end
 
+    def destroy
+        offering = Offering.find(params[:id])
+        offering.destroy
+    end
+
     private
 
     def offering_params
-        params.permit(:name, :less_than_truckload, :full_truckload, :origin, :origin_date, :destination, :destination_date).merge(user_id: session[:user_id])
+        params.permit(:name, :less_than_truckload, :full_truckload, :origin, :origin_date, :destination, :destination_date, :asking_price).merge(user_id: session[:user_id])
     end
 
 end
