@@ -34,6 +34,24 @@ class UsersController < ApplicationController
         end
     end
 
+    def inbox
+        messages = User.find_by(id: session[:user_id]).messages
+        if messages
+            render json: messages.to_json(:include => [:user, :sender, :post => {:include => :offering}]), status: :ok
+        else
+            render json: { error: "No messages" }, status: :unprocessable_entity
+        end
+    end
+
+    def outbox
+        messages = User.find_by(id: session[:user_id]).sender_messages
+        if messages
+            render json: messages.to_json(:include => [:user, :sender, :post => {:include => :offering}]), status: :ok
+        else
+            render json: { error: "No messages" }, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def user_params

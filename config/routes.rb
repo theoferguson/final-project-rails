@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   get "/me/offerings", to: "offerings#foruser"
 
-  get "/me/inbox", to: "messages#inbox"
+  get "/me/inbox", to: "users#inbox"
+  get "/me/outbox", to: "users#outbox"
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

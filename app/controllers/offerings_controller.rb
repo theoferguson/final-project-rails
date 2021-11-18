@@ -27,7 +27,7 @@ class OfferingsController < ApplicationController
     private
 
     def offering_params
-        params.permit(:name, :less_than_truckload, :full_truckload, :origin, :origin_date, :destination, :destination_date, :asking_price).merge(user_id: session[:user_id])
+        params.permit(:name, :less_than_truckload, :full_truckload, :origin, :origin_date, :destination, :destination_date, :asking_price).merge(user_id: session[:user_id]).with_defaults(full_truckload: false, less_than_truckload: false)
     end
 
 end
