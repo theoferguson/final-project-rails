@@ -40,8 +40,8 @@ function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRe
                         onClick={handleItemClick}
                     />
                 <Menu.Menu position='right'>
-                    <Menu.Item as={Link} name="Messages" className="navigation" to="/messages"
-                        active={activeItem === 'messages'}
+                    <Menu.Item as={Link} name="Messages" className="navigation" to="/mymessages"
+                        active={activeItem === 'mymessages'}
                         onClick={handleItemClick}>
                         {user.messages.length !== 0 ? <i aria-hidden="true" className="red envelope square icon" ></i> : null}
                         Messages
@@ -51,7 +51,7 @@ function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRe
             </Menu>
             <Segment>
                 <Routes>
-                    <Route path="/messages" element={<Messages />} />
+                    <Route path="/mymessages" element={<Messages />} />
                     <Route path="/about" element={<AboutUs />} />
                     <Route path="/marketplace" element={<Marketplace marketplace={marketplace} user={user} issueRequest={issueRequest} setIssueRequest={setIssueRequest} />} />
                     <Route path="/userpage" element={<UserPage user={user} setUser={setUser} marketplace={marketplace} issueRequest={issueRequest} setIssueRequest={setIssueRequest} />} />
