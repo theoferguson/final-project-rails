@@ -1,7 +1,8 @@
 import {
     Routes,
     Route,
-    Link
+    Link,
+    useNavigate
 } from "react-router-dom";
 import AboutUs from "./AboutUs";
 import Marketplace from "./Marketplace";
@@ -12,11 +13,15 @@ import Messages from "./Messages";
 
 function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRequest }) {
     const [activeItem, setActiveItem] = useState({ activeItem: 'userpage' })
+    let navigate = useNavigate();
 
     function handleLogout() {
         fetch("/logout", {
             method: "DELETE",
-        }).then(() => onLogout());
+        }).then(() => {
+            navigate("/");
+            onLogout()
+        });
     }
 
     function handleItemClick(e, { name }) {
@@ -26,19 +31,19 @@ function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRe
     return (
         <div>
             <Menu pointing secondary>
-                    <Menu.Item as={Link} className="navigation" to="/userpage"
-                        name="User Page"
-                        active={activeItem === 'userpage'}
-                        onClick={handleItemClick}
-                    />
-                    <Menu.Item as={Link} name="Marketplace" className="navigation" to="/marketplace"
-                        active={activeItem === 'marketplace'}
-                        onClick={handleItemClick}
-                    />
-                    <Menu.Item as={Link} name="About Us" className="navigation" to="/about"
-                        active={activeItem === 'about'}
-                        onClick={handleItemClick}
-                    />
+                <Menu.Item as={Link} className="navigation" to="/userpage"
+                    name="User Page"
+                    active={activeItem === 'userpage'}
+                    onClick={handleItemClick}
+                />
+                <Menu.Item as={Link} name="Marketplace" className="navigation" to="/marketplace"
+                    active={activeItem === 'marketplace'}
+                    onClick={handleItemClick}
+                />
+                <Menu.Item as={Link} name="About Us" className="navigation" to="/about"
+                    active={activeItem === 'about'}
+                    onClick={handleItemClick}
+                />
                 <Menu.Menu position='right'>
                     <Menu.Item as={Link} name="Messages" className="navigation" to="/mymessages"
                         active={activeItem === 'mymessages'}

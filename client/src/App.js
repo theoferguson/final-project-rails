@@ -49,9 +49,9 @@ function App() {
     setUser(null)
   };
 
-  if (user) {
-    return (
-      <Router>
+  function navigation() {
+    if (user) {
+      return (
         <Navbar
           onLogout={onLogout}
           user={user}
@@ -60,18 +60,25 @@ function App() {
           issueRequest={issueRequest}
           setIssueRequest={setIssueRequest}
         />
-      </Router>
-    );
-  } else {
-    return (
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Login onLogin={onLogin} />
-          <SignUp onSignUp={onSignUp} />
-        </Grid.Column>
-      </Grid>
-    );
-  }
+      );
+    } else {
+      return (
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Login onLogin={onLogin} />
+            <SignUp onSignUp={onSignUp} />
+          </Grid.Column>
+        </Grid>
+      );
+    };
+  };
+
+  return (
+    <Router>
+      {navigation()}
+    </Router>
+
+  )
 }
 
 export default App;
