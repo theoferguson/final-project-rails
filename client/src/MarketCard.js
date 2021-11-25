@@ -38,6 +38,7 @@ function MarketCard({ post, user, issueRequest, setIssueRequest }) {
                 <Card.Header>{post.offering.name}</Card.Header>
                 <Card.Meta >{post.offering.user.username}</Card.Meta>
                 <Card.Description>
+                <div><strong>Asking Price:</strong> ${post.offering.asking_price}</div>
                     <div><strong>Destination:</strong> {post.offering.destination}</div>
                     <div><strong>Origin:</strong> {post.offering.origin}</div>
                     <div><strong>Delivery Date:</strong> {post.offering.destination_date.slice(0, 10)}</div>
