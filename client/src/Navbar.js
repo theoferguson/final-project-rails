@@ -20,7 +20,7 @@ function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRe
             method: "DELETE",
         }).then(() => {
             navigate("/");
-            onLogout()
+            onLogout();
         });
     }
 

@@ -101,9 +101,9 @@ function MyOfferings({ user, marketplace, setUser, issueRequest, setIssueRequest
         }
     };
 
-    useEffect(() => {
-        console.log(offering);
-    }, [offering]);
+    // useEffect(() => {
+    //     console.log(offering);
+    // }, [offering]);
 
     return (
         <>

@@ -1,4 +1,5 @@
-class SessionsController < ApplicationController
+module Api
+    class SessionsController < ApplicationController
 
     def create
         user = User.find_by(username: params[:username])
@@ -19,4 +20,5 @@ class SessionsController < ApplicationController
         end
     end
 
+end
 end

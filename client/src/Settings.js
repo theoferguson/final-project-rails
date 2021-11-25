@@ -21,9 +21,9 @@ function Settings({ user, setUser }) {
     };
 
     // for testing:
-    useEffect(() => {
-        console.log(settings);
-    }, [settings]);
+    // useEffect(() => {
+    //     console.log(settings);
+    // }, [settings]);
 
     function handleSubmit(e) {
         e.preventDefault();

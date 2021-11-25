@@ -1,4 +1,5 @@
-class OfferingsController < ApplicationController
+module Api
+    class OfferingsController < ApplicationController
 
     def index
         offerings = Offering.all
@@ -30,4 +31,5 @@ class OfferingsController < ApplicationController
         params.permit(:name, :less_than_truckload, :full_truckload, :origin, :origin_date, :destination, :destination_date, :asking_price).merge(user_id: session[:user_id]).with_defaults(full_truckload: false, less_than_truckload: false)
     end
 
+end
 end

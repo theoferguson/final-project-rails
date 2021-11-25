@@ -1,4 +1,5 @@
-class PostsController < ApplicationController
+module Api
+    class PostsController < ApplicationController
 
     def index
         posts = Post.all
@@ -25,4 +26,5 @@ class PostsController < ApplicationController
         params.permit(:name).merge(offering_id: params[:id])
     end
 
+end
 end

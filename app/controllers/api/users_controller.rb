@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+module Api
+    class UsersController < ApplicationController
     
     def index
         users = User.all
@@ -57,4 +58,5 @@ class UsersController < ApplicationController
     def user_params
         params.permit(:username, :password, :password_confirmation, :name, :email, :picture, :company, :capacity_provider, :location, :industry)
     end
+end
 end
