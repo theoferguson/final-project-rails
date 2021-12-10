@@ -1,2 +1,3 @@
 class UserDataController < ApplicationController
+    
 end

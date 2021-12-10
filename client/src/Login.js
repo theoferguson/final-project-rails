@@ -4,6 +4,7 @@ import { Button, Form, Header, Segment } from 'semantic-ui-react'
 function Login({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [signInError, setSignInError] = useState([])
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -15,7 +16,14 @@ function Login({ onLogin }) {
             body: JSON.stringify({ username, password }),
         })
             .then((r) => r.json())
-            .then((user) => onLogin(user));
+            .then((user) => {
+                if (user.username) {
+                    onLogin(user)
+                    setSignInError([])
+                } else {
+                    setSignInError(user.error)
+                }
+            });
     }
 
     return (
@@ -47,6 +55,7 @@ function Login({ onLogin }) {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <Button color='teal' fluid type="submit">Login</Button>
+                    {signInError ? <div style={{ color: "red" }}>{signInError}</div> : null}
                 </Segment>
             </Form>
         </>

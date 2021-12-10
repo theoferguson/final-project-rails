@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Form, Checkbox, Button } from 'semantic-ui-react'
 
 
@@ -19,11 +19,6 @@ function Settings({ user, setUser }) {
         setChecked(!checked)
         handleChange("capacity_provider")
     };
-
-    // for testing:
-    // useEffect(() => {
-    //     console.log(settings);
-    // }, [settings]);
 
     function handleSubmit(e) {
         e.preventDefault();

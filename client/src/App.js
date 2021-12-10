@@ -28,28 +28,20 @@ function App() {
   }, [issueRequest]);
 
   function onLogin(user) {
-    if (user.username) {
       setUser(user)
       setIssueRequest(!issueRequest)
-    } else {
-      console.log(user)
-    }
   };
 
   function onSignUp(user) {
-    if (user.username) {
       setUser(user)
       setIssueRequest(!issueRequest)
-    } else {
-      console.log(user)
-    }
   };
 
   function onLogout() {
     setUser(null)
   };
 
-  function navigation() {
+  function userDetails() {
     if (user) {
       return (
         <Navbar
@@ -75,7 +67,7 @@ function App() {
 
   return (
     <Router>
-      {navigation()}
+      {userDetails()}
     </Router>
 
   )

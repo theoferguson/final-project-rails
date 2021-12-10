@@ -5,6 +5,7 @@ function SignUp({ onSignUp }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [signupErrors, setSignupErrors] = useState([])
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -21,7 +22,14 @@ function SignUp({ onSignUp }) {
             }),
         })
             .then((r) => r.json())
-            .then((user) => onSignUp(user));
+            .then((user) => {
+                if (user.username) {
+                    onSignUp(user)
+                    setSignupErrors([])
+                } else {
+                    setSignupErrors(user.errors)
+                }
+            });
     }
 
     return (
@@ -61,6 +69,7 @@ function SignUp({ onSignUp }) {
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
                     />
                     <Button color='teal' fluid type="submit">Submit</Button>
+                    {signupErrors ? signupErrors.map((error) => <div key={error} style={{ color: "red" }}>{error}</div>) : null}
                 </Segment>
             </Form>
         </>
