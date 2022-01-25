@@ -1,3 +1,4 @@
-class UserDataController < ApplicationController
-    
+module Api
+    class UserDataController < ApplicationController
+    end
 end
