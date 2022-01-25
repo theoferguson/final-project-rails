@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :user_data
   scope module: :api do
+    resources :user_data
     resources :posts
     resources :offerings
     resources :users
