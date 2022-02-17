@@ -1,24 +1,18 @@
-# README
+# Trucking Exchange Network
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Market platform for trucking capacity involving capacity providers and seekers.
 
-Things you may want to cover:
+React, SemanticUI, Ruby on Rails, Postgresql
 
-* Ruby version
+While in development, run:
+$ rails s
+$ npm start --prefix client
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To be implemented:
+-add more destinations (slow load)
+-search marketplace
+-filter user page listings, calendar view
+-include instructional landing page for first-time users
+-market data dashboard
+-add market making mechanism
+-add completed transaction certification
