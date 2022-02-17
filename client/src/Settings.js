@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Form, Checkbox, Button } from 'semantic-ui-react'
 
 
-function Settings({ user, setUser }) {
+function Settings({ user, setUser, issueRequest, setIssueRequest }) {
     const [settings, setSettings] = useState({});
     const [checked, setChecked] = useState(false)
 
     function handleChange(event) {
-        console.log(checked)
+        // console.log(checked)
         if (event === "capacity_provider") {
             setSettings({ ...settings, capacity_provider: checked })
         } else {
@@ -36,6 +36,7 @@ function Settings({ user, setUser }) {
                 console.log(json)
                 setUser(json)
                 setSettings({})
+                setIssueRequest(!issueRequest)
             })
     };
 

@@ -11,6 +11,9 @@ $ npm start --prefix client
 Run this command to start the Postgres service:
 $ sudo service postgresql start
 
+Uses cities for origin/destination data from the Countries & Cities API here:
+https://documenter.getpostman.com/view/1134062/T1LJjU52#01609797-37a7-49b4-91bb-4a4c81862797
+
 To be implemented:
 -add more destinations (slow load)
 -search marketplace
