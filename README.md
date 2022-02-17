@@ -8,6 +8,9 @@ While in development, run:
 $ rails s
 $ npm start --prefix client
 
+Run this command to start the Postgres service:
+$ sudo service postgresql start
+
 To be implemented:
 -add more destinations (slow load)
 -search marketplace
