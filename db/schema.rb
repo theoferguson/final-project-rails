@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_232849) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_12_03_232849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,8 +19,8 @@ ActiveRecord::Schema.define(version: 2021_12_03_232849) do
     t.bigint "user_id"
     t.bigint "post_id"
     t.bigint "sender_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_messages_on_post_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
@@ -29,16 +28,16 @@ ActiveRecord::Schema.define(version: 2021_12_03_232849) do
 
   create_table "offerings", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "posted_at"
+    t.datetime "posted_at", precision: nil
     t.string "name"
     t.boolean "less_than_truckload"
     t.boolean "full_truckload"
     t.string "destination"
     t.string "origin"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "origin_date"
-    t.datetime "destination_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "origin_date", precision: nil
+    t.datetime "destination_date", precision: nil
     t.float "asking_price"
     t.index ["user_id"], name: "index_offerings_on_user_id"
   end
@@ -46,8 +45,8 @@ ActiveRecord::Schema.define(version: 2021_12_03_232849) do
   create_table "posts", force: :cascade do |t|
     t.string "name"
     t.bigint "offering_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["offering_id"], name: "index_posts_on_offering_id"
   end
 
@@ -55,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_12_03_232849) do
     t.string "category"
     t.bigint "user_id"
     t.string "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_data_on_user_id"
   end
 
@@ -72,8 +71,8 @@ ActiveRecord::Schema.define(version: 2021_12_03_232849) do
     t.text "email"
     t.integer "logins_count"
     t.text "picture"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "admin", default: false
   end
 

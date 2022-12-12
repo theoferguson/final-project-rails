@@ -10,7 +10,8 @@ function UserPage({ user, setUser, marketplace, setIssueRequest, issueRequest })
     useEffect(() => {
         fetch("https://countriesnow.space/api/v0.1/countries/population/cities/filter", {
             method: 'POST',
-            redirect: 'follow'
+            redirect: 'follow',
+            // mode: 'no-cors' // 'cors' by default
         })
             .then((response) => {
                 if (response.ok) {
@@ -27,11 +28,11 @@ function UserPage({ user, setUser, marketplace, setIssueRequest, issueRequest })
         <Grid divided>
             <Grid.Column width={8}>
                 <Segment>
-                    <Settings 
-                    user={user} 
-                    setUser={setUser} 
-                    issueRequest={issueRequest} 
-                    setIssueRequest={setIssueRequest} 
+                    <Settings
+                        user={user}
+                        setUser={setUser}
+                        issueRequest={issueRequest}
+                        setIssueRequest={setIssueRequest}
                     />
                 </Segment>
                 <Segment>
@@ -39,13 +40,13 @@ function UserPage({ user, setUser, marketplace, setIssueRequest, issueRequest })
                 </Segment>
             </Grid.Column>
             <Grid.Column width={8}>
-                <MyOfferings 
-                user={user} 
-                marketplace={marketplace} 
-                setUser={setUser} 
-                issueRequest={issueRequest} 
-                setIssueRequest={setIssueRequest} 
-                allUsCities={allUsCities}
+                <MyOfferings
+                    user={user}
+                    marketplace={marketplace}
+                    setUser={setUser}
+                    issueRequest={issueRequest}
+                    setIssueRequest={setIssueRequest}
+                    allUsCities={allUsCities}
                 />
             </Grid.Column>
         </Grid>
