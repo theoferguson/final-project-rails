@@ -7,9 +7,10 @@ import {
 import AboutUs from "../AboutUs";
 import Marketplace from "../Marketplace";
 import UserPage from "../UserPage/UserPage";
-import { Menu, Segment } from "semantic-ui-react";
+import { Segment } from "semantic-ui-react";
 import { useState } from "react";
 import Messages from "../Messages";
+import { NavbarMenu, TruckingSegment } from "./NavbarStyles";
 
 function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRequest }) {
     const [activeItem, setActiveItem] = useState({ activeItem: 'userpage' })
@@ -30,31 +31,31 @@ function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRe
 
     return (
         <div>
-            <Menu pointing secondary>
-                <Menu.Item as={Link} className="navigation" to="/userpage"
+            <NavbarMenu pointing secondary className="trucking-navbar">
+                <NavbarMenu.Item as={Link} className="navigation" to="/userpage"
                     name="User Page"
                     active={activeItem === 'userpage'}
                     onClick={handleItemClick}
                 />
-                <Menu.Item as={Link} name="Marketplace" className="navigation" to="/marketplace"
+                <NavbarMenu.Item as={Link} name="Marketplace" className="navigation" to="/marketplace"
                     active={activeItem === 'marketplace'}
                     onClick={handleItemClick}
                 />
-                <Menu.Item as={Link} name="About Us" className="navigation" to="/about"
+                <NavbarMenu.Item as={Link} name="About Us" className="navigation" to="/about"
                     active={activeItem === 'about'}
                     onClick={handleItemClick}
                 />
-                <Menu.Menu position='right'>
-                    <Menu.Item as={Link} name="Messages" className="navigation" to="/mymessages"
+                <NavbarMenu.Menu position='right'>
+                    <NavbarMenu.Item as={Link} name="Messages" className="navigation" to="/mymessages"
                         active={activeItem === 'mymessages'}
                         onClick={handleItemClick}>
                         {user.messages.length !== 0 ? <i aria-hidden="true" className="red envelope square icon" ></i> : null}
                         Messages
-                    </Menu.Item>
-                    <Menu.Item className="navigation" onClick={handleLogout} name='Logout' />
-                </Menu.Menu>
-            </Menu>
-            <Segment>
+                    </NavbarMenu.Item>
+                    <NavbarMenu.Item className="navigation" onClick={handleLogout} name='Logout' />
+                </NavbarMenu.Menu>
+            </NavbarMenu>
+            <TruckingSegment>
                 <Routes>
                     <Route path="/mymessages" element={<Messages />} />
                     <Route path="/about" element={<AboutUs />} />
@@ -62,7 +63,7 @@ function Navbar({ onLogout, user, setUser, marketplace, setIssueRequest, issueRe
                     <Route path="/userpage" element={<UserPage user={user} setUser={setUser} marketplace={marketplace} issueRequest={issueRequest} setIssueRequest={setIssueRequest} />} />
                     <Route path="/" element={<UserPage user={user} setUser={setUser} marketplace={marketplace} issueRequest={issueRequest} setIssueRequest={setIssueRequest} />} />
                 </Routes>
-            </Segment>
+            </TruckingSegment>
         </div >
     );
 }

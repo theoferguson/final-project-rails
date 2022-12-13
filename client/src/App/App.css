@@ -24,6 +24,11 @@
   color: white;
 }
 
+.trucking-navbar {
+  padding: .75em;
+  font-size: 20px !important;
+}
+
 /* //don't need this link */
 .App-link {
   color: #61dafb;
